@@ -39,15 +39,18 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
+        self.flipCount++;
     }else{
-        NSString * randomCardContents = [self.deck drawRandomCard].contents;
+        Card * card= [self.deck drawRandomCard];
+        if (card){
         [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                           forState:UIControlStateNormal];
-        [sender setTitle:randomCardContents forState:UIControlStateNormal];
-        
+        [sender setTitle:card.contents forState:UIControlStateNormal];
+        self.flipCount++;
+        }
 
     }
-    self.flipCount++;
+    
 }
 
 @end
