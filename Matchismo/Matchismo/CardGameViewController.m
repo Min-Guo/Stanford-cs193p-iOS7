@@ -21,9 +21,18 @@
 
 - (IBAction)restartButton:(UIButton *)sender
 {
+    for (UIButton *cardButton in self.cardButtons){
+        [cardButton setBackgroundImage:[UIImage imageNamed:@"cardback"]
+                              forState:UIControlStateNormal];
+        [cardButton setTitle:@"" forState:UIControlStateNormal];
+        cardButton.enabled = YES;
+        
+    }
+    
     _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                               usingDeck:[self createDeck]];
 }
+
 
 
 - (CardMatchingGame *)game
