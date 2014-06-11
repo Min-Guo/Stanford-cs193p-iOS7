@@ -12,14 +12,19 @@
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
-@property (strong, nonatomic) Deck *deck;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-
 @end
 
 @implementation CardGameViewController
+
+- (IBAction)restartButton:(UIButton *)sender
+{
+    _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+                                              usingDeck:[self createDeck]];
+}
+
 
 - (CardMatchingGame *)game
 {
@@ -65,4 +70,5 @@
 {
     return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
 }
+
 @end
