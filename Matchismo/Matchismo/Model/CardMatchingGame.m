@@ -16,11 +16,20 @@
 
 @implementation CardMatchingGame
 
+- (NSInteger)cardNumber {
+    return _cardNumber;
+}
+
+- (NSInteger)setcardNumber:(NSInteger)newValue {
+    return newValue;
+}
+
 - (NSMutableArray *)cards
 {
     if (!_cards) _cards = [[NSMutableArray alloc] init];
     return _cards;
 }
+
 
 -(instancetype)initWithCardCount:(NSUInteger)count
                        usingDeck:(Deck *)deck
@@ -62,7 +71,7 @@ static const int COST_TO_CHOOSE = 1;
                 if (otherCard.isChosen && !otherCard.isMatched){
                     [otherCards addObject:otherCard];
                 }
-                if ([otherCards count] == 2){
+                if ([otherCards count] == self.cardNumber){
                     int matchScore = [card match:otherCards];
                     if (matchScore) {
                         self.score += matchScore * MATCH_BONUS;

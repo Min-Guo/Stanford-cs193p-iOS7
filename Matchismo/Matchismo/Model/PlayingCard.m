@@ -7,24 +7,29 @@
 //
 
 #import "PlayingCard.h"
+#import "CardMatchingGame.h"
 
 @implementation PlayingCard
+
 
 - (int)match:(NSArray *)otherCards
 {
     int score = 0;
     
-    if ([otherCards count] == 2) {
-        PlayingCard *otherCard = otherCards [0];
-        PlayingCard *anotherCard = otherCards[1];
-        if ([self.suit isEqualToString:otherCard.suit] && [self.suit isEqualToString:anotherCard.suit]){
-            score = 1;
-        } else if (self.rank == otherCard.rank && self.rank == anotherCard.rank){
-            score = 4;
+    //if ([otherCards count] == 1) {
+        for (int i = 0; i < (int)[otherCards count] - 1; i++)
+        {
+            PlayingCard *thisCard = otherCards[i];
+            PlayingCard * nextCard = otherCards[i + 1];
+            if([self.suit isEqualToString:thisCard.suit] && [thisCard.suit isEqualToString:nextCard.suit]){
+                score = 1;
+        } else if (self.rank == thisCard.rank == nextCard.rank){
+                score = 4;
+            }
         }
-    }
     return score;
 }
+
 
 
 -(NSString *)contents

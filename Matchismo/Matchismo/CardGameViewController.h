@@ -10,4 +10,8 @@
 
 @interface CardGameViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *cardSwitcher;
+
+- (IBAction)cardSwitched:(id)sender;
+
 @end

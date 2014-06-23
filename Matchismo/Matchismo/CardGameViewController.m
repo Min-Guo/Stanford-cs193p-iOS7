@@ -15,6 +15,7 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
 @end
 
 @implementation CardGameViewController
@@ -81,4 +82,17 @@
     return [UIImage imageNamed:card.isChosen ? @"cardfront" : @"cardback"];
 }
 
+
+
+
+- (IBAction)cardSwitched:(id)sender {
+    int index = _cardSwitcher.selectedSegmentIndex ;
+    if (index == 0){
+        self.game.cardNumber = 1;
+    }
+    if (index == 1){
+        self.game.cardNumber = 2;
+    }
+
+}
 @end

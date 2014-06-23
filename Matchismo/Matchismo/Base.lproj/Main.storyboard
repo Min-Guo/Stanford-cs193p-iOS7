@@ -178,10 +178,24 @@
                                     <action selector="restartButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TH0-9L-dQI"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-o1-mDY">
+                                <rect key="frame" x="105" y="54" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93815768494897955" green="0.93815768494897955" blue="0.93815768494897955" alpha="1" colorSpace="calibratedRGB"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <color key="tintColor" red="0.082620570300997162" green="0.072684950096197576" blue="0.99938217474489799" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="cardSwitched:" destination="vXZ-lx-hvc" eventType="valueChanged" id="j7M-yg-SGu"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="cardSwitcher" destination="m4P-o1-mDY" id="6VB-aF-LUd"/>
                         <outlet property="scoreLabel" destination="XqS-cY-Fxh" id="E7Y-H0-kcd"/>
                         <outletCollection property="cardButtons" destination="Taq-08-UNg" id="cQS-7d-oaJ"/>
                         <outletCollection property="cardButtons" destination="oNJ-0l-ThZ" id="aF4-JP-vaY"/>

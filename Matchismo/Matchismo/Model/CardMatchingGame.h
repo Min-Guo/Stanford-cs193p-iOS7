@@ -19,5 +19,8 @@
 -(Card *)cardAtIndex:(NSUInteger)index;
 
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic) NSInteger cardNumber;
+@property (nonatomic) NSInteger playCards;
+//-(void)getCardNumber:(NSInteger)newValue;
 
 @end
