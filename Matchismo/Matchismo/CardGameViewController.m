@@ -87,6 +87,7 @@
 
 - (IBAction)cardSwitched:(id)sender {
     int index = _cardSwitcher.selectedSegmentIndex ;
+    
     if (index == 0){
         self.game.cardNumber = 1;
     }

@@ -16,7 +16,14 @@
 {
     int score = 0;
     
-    //if ([otherCards count] == 1) {
+    if ([otherCards count] == 1) {
+        PlayingCard *thisCard = [otherCards firstObject];
+        if ([self.suit isEqualToString:thisCard.suit]){
+            score = 1;
+        } else if (self.rank == thisCard.rank){
+            score = 4;
+        }
+    } else if ([otherCards count] > 1){
         for (int i = 0; i < (int)[otherCards count] - 1; i++)
         {
             PlayingCard *thisCard = otherCards[i];
@@ -27,6 +34,7 @@
                 score = 4;
             }
         }
+    }
     return score;
 }
 
