@@ -17,6 +17,7 @@
 @implementation CardMatchingGame
 
 - (NSInteger)cardNumber {
+    if (!_cardNumber) _cardNumber = 1;
     return _cardNumber;
 }
 

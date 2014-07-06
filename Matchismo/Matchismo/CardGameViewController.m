@@ -52,7 +52,7 @@
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
-    self.game.cardNumber = 1;
+    //self.game.cardNumber = 1;
     int cardIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardIndex];
     [self updateUI];
