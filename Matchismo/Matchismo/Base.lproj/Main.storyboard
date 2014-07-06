@@ -161,14 +161,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqS-cY-Fxh">
-                                <rect key="frame" x="18" y="438" width="239" height="34"/>
+                                <rect key="frame" x="29" y="70" width="239" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-Fr-fey">
-                                <rect key="frame" x="115" y="20" width="91" height="37"/>
+                                <rect key="frame" x="121" y="9" width="91" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Restart">
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="m4P-o1-mDY">
-                                <rect key="frame" x="105" y="54" width="123" height="29"/>
+                                <rect key="frame" x="105" y="37" width="123" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93815768494897955" green="0.93815768494897955" blue="0.93815768494897955" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
@@ -191,11 +191,18 @@
                                     <action selector="cardSwitched:" destination="vXZ-lx-hvc" eventType="valueChanged" id="j7M-yg-SGu"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45a-8o-yDT">
+                                <rect key="frame" x="40" y="431" width="260" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="cardSwitcher" destination="m4P-o1-mDY" id="6VB-aF-LUd"/>
+                        <outlet property="descriptionLabel" destination="45a-8o-yDT" id="fjN-0O-BAh"/>
                         <outlet property="scoreLabel" destination="XqS-cY-Fxh" id="E7Y-H0-kcd"/>
                         <outletCollection property="cardButtons" destination="Taq-08-UNg" id="cQS-7d-oaJ"/>
                         <outletCollection property="cardButtons" destination="oNJ-0l-ThZ" id="aF4-JP-vaY"/>

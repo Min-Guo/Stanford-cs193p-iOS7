@@ -17,6 +17,7 @@
 @implementation CardMatchingGame
 
 - (NSInteger)cardNumber {
+    
     if (!_cardNumber) _cardNumber = 1;
     return _cardNumber;
 }
@@ -79,6 +80,7 @@ static const int COST_TO_CHOOSE = 1;
                         card.matched = YES;
                         for (Card *otherCard in otherCards){
                         otherCard.matched = YES;
+                        self.description = [NSString stringWithFormat:@"Matched %@%@ for %d points", card.contents, otherCard.contents, matchScore];
                         }
                     } else {
                         self.score -= MISMATCH_PENALTY;

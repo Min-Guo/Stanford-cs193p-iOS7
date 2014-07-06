@@ -15,10 +15,13 @@
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end
 
 @implementation CardGameViewController
+
+
 
 - (IBAction)restartButton:(UIButton *)sender
 {
@@ -30,9 +33,10 @@
         self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", 0];   
         
     }
-    
+    int currentCardNumber = _game.cardNumber;
     _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                               usingDeck:[self createDeck]];
+    _game.cardNumber = currentCardNumber;
 }
 
 
@@ -43,6 +47,8 @@
                                                           usingDeck:[self createDeck]];
     return _game;
 }
+
+
 
 - (Deck *)createDeck
 {
@@ -71,6 +77,7 @@
         cardButton.enabled = !card.isMatched;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    self.descriptionLabel.text = self.game.description;
 }
 
 - (NSString *)titleForCard:(Card *)card

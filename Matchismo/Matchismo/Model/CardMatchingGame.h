@@ -21,6 +21,7 @@
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) NSInteger cardNumber;
 @property (nonatomic) NSInteger playCards;
+@property (nonatomic) NSString* description;
 //-(void)getCardNumber:(NSInteger)newValue;
 
 @end
