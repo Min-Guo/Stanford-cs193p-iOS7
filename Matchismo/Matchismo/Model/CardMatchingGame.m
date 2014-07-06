@@ -69,9 +69,12 @@ static const int COST_TO_CHOOSE = 1;
         } else {
             //match against another card
             NSMutableArray * otherCards = [[NSMutableArray alloc] init];
+            NSMutableArray * allCards = [[NSMutableArray alloc] init];
+            [allCards addObject:card];
             for (Card *otherCard in self.cards){
                 if (otherCard.isChosen && !otherCard.isMatched){
                     [otherCards addObject:otherCard];
+                    [allCards addObject:otherCard];
                 }
                 if ([otherCards count] == self.cardNumber){
                     int matchScore = [card match:otherCards];
@@ -80,7 +83,7 @@ static const int COST_TO_CHOOSE = 1;
                         card.matched = YES;
                         for (Card *otherCard in otherCards){
                         otherCard.matched = YES;
-                        self.description = [NSString stringWithFormat:@"Matched %@%@ for %d points", card.contents, otherCard.contents, matchScore];
+                        self.description = [self describeMatchingResult:allCards :matchScore];
                         }
                     } else {
                         self.score -= MISMATCH_PENALTY;
@@ -97,6 +100,21 @@ static const int COST_TO_CHOOSE = 1;
     }
 }
 
+-(NSString *)describeMatchingResult:(NSMutableArray *)cards :(NSInteger)matchScore
+{
+    //NSString *matchString = @"Matched";
+    NSString *contentString =[[NSString alloc] init];
+    NSString *cardMatchDescription = [[NSString alloc] init];
+    
+    
+    for ( Card *card in cards)
+    {
+        contentString = [contentString stringByAppendingString:card.contents];
+        
+    }
+        cardMatchDescription = [NSString stringWithFormat:@"Matched %@ for %d point", contentString, matchScore];
+    return cardMatchDescription;
+}
 
 
 -(Card *)cardAtIndex:(NSUInteger)index
