@@ -22,9 +22,6 @@
     return _cardNumber;
 }
 
-- (NSInteger)setcardNumber:(NSInteger)newValue {
-    return newValue;
-}
 
 - (NSMutableArray *)cards
 {
@@ -68,6 +65,7 @@ static const int COST_TO_CHOOSE = 1;
             card.chosen = NO;
         } else {
             //match against another card
+            self.description = card.contents;
             NSMutableArray * otherCards = [[NSMutableArray alloc] init];
             NSMutableArray * allCards = [[NSMutableArray alloc] init];
             [allCards addObject:card];
@@ -89,6 +87,7 @@ static const int COST_TO_CHOOSE = 1;
                         self.score -= MISMATCH_PENALTY;
                         for (Card *otherCard in otherCards){
                         otherCard.chosen = NO;
+                        self.description = [self describeMismatchResult:allCards :MISMATCH_PENALTY];
                         }
                     }
                     break;
@@ -102,7 +101,6 @@ static const int COST_TO_CHOOSE = 1;
 
 -(NSString *)describeMatchingResult:(NSMutableArray *)cards :(NSInteger)matchScore
 {
-    //NSString *matchString = @"Matched";
     NSString *contentString =[[NSString alloc] init];
     NSString *cardMatchDescription = [[NSString alloc] init];
     
@@ -112,7 +110,22 @@ static const int COST_TO_CHOOSE = 1;
         contentString = [contentString stringByAppendingString:card.contents];
         
     }
-        cardMatchDescription = [NSString stringWithFormat:@"Matched %@ for %d point", contentString, matchScore];
+        cardMatchDescription = [NSString stringWithFormat:@"Matched %@ for %d point.", contentString, matchScore];
+    return cardMatchDescription;
+}
+
+-(NSString *)describeMismatchResult:(NSMutableArray *)cards :(NSInteger)MISMATCH_PENALTY
+{
+    NSString *contentString =[[NSString alloc] init];
+    NSString *cardMatchDescription = [[NSString alloc] init];
+    
+    
+    for ( Card *card in cards)
+    {
+        contentString = [contentString stringByAppendingString:card.contents];
+        
+    }
+    cardMatchDescription = [NSString stringWithFormat:@"%@ don't match! %d point penalty!", contentString, MISMATCH_PENALTY];
     return cardMatchDescription;
 }
 

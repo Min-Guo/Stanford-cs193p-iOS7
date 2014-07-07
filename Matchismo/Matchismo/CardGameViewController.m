@@ -30,7 +30,8 @@
                               forState:UIControlStateNormal];
         [cardButton setTitle:@"" forState:UIControlStateNormal];
         cardButton.enabled = YES;
-        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", 0];   
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", 0];
+        self.descriptionLabel.text = @"";
         
     }
     int currentCardNumber = _game.cardNumber;
